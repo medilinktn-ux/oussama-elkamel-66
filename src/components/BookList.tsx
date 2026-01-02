@@ -1,11 +1,16 @@
 import React from 'react';
-import Book from './Book.tsx';
+import Book from './Book';
 
-const BookList = () => {
+interface BookListProps {
+  bookTitles: string[];
+}
+
+const BookList = ({ bookTitles }: BookListProps) => {
   return (
     <div>
-      <Book />
-      <Book />
+      {bookTitles.map((title, index) => (
+        <Book key={index} title={title} />
+      ))}
     </div>
   );
 };
