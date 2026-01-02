@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from 'react';
-
-interface Toast {
-  message: string;
-  type: 'success' | 'error' | 'warning';
-}
+import { useState } from 'react';
 
 const useToast = () => {
-  const [toast, setToast] = useState<Toast | null>(null);
-  const [duration, setDuration] = useState(3000);
+  const [toast, setToast] = useState(null);
 
-  useEffect(() => {
-    if (toast) {
-      const timer = setTimeout(() => {
-        setToast(null);
-      }, duration);
-      return () => clearTimeout(timer);
-    }
-  }, [toast, duration]);
-
-  const showToast = (message: string, type: 'success' | 'error' | 'warning', duration?: number) => {
-    setToast({ message, type });
-    if (duration) {
-      setDuration(duration);
-    }
+  const showToast = (message) => {
+    setToast(message);
   };
 
-  return { toast, setToast: showToast };
-};
+  const hideToast = () => {
+    setToast(null);
+  };
+
+  return { toast, showToast, hideToast };;
+}
 
 export default useToast;
