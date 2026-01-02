@@ -1,17 +1,7 @@
 import React from 'react';
 
-interface BookProps {
-  title: string;
-  author: string;
-}
-
-const Book = ({ title, author }: BookProps) => {
-  return (
-    <div>
-      <h2>{title}</h2>
-      <p>By {author}</p>
-    </div>
-  );
+const Book = () => {
+  return <div>Book Component</div>;
 };
 
 export default Book;

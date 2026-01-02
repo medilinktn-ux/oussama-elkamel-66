@@ -1,1 +1,1 @@
-{"name": "project", "version": "1.0.0", "type": "module", "scripts": {"build": "vite build"}, "dependencies": {"vite": "latest", "lucide-react": "latest"}}
+{"name": "project", "version": "1.0.0", "type": "module", "scripts": {"build": "vite build"}, "dependencies": {"vite": "latest", "@shadcn/ui": null, "lucide-react": "latest"}}
