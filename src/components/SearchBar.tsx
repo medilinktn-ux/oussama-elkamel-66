@@ -1,1 +1,7 @@
-import React from 'react';function SearchBar() {return <div>Search Bar Component</div>;};export default SearchBar;
+import React from 'react';
+
+function SearchBar() {
+  return <div>Search Bar Component</div>;
+}
+
+export default SearchBar;
