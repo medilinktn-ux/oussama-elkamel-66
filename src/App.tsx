@@ -1,7 +1,8 @@
 import React from 'react';
+import BookList from './components/BookList.tsx';
 
-const App = () => {
-  return <div>Hello World!</div>;
-};
+function App() {
+  return <BookList />;
+}
 
 export default App;
