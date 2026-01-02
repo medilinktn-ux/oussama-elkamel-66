@@ -1,11 +1,1 @@
-import React from 'react';
-import Book from './Book';
-function BookList() {
-  return (
-    <div>
-      <Book />
-      <Book />
-    </div>
-  );
-}
-export default BookList;
+import React from 'react';function BookList() {return <div>Book List Component</div>;};export default BookList;
