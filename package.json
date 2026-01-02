@@ -1,1 +1,1 @@
-{"name": "project", "version": "1.0.0", "type": "module", "scripts": {"build": "vite build"}, "dependencies": {"vite": "latest", "@shadcn/ui": null, "lucide-react": "latest"}}
+{"name": "oussama-elkamel-66", "version": "1.0.0", "type": "module", "scripts": {"dev": "vite", "build": "vite build"}, "dependencies": {"react": "latest", "react-dom": "latest", "lucide-react": "latest"}, "devDependencies": {"vite": "latest"}}
