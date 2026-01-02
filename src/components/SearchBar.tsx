@@ -10,7 +10,9 @@ function SearchBar({ placeholder, onSearch }: SearchBarProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSearch(query);
+    if (query.trim() !== '') {
+      onSearch(query);
+    }
   };
 
   return (

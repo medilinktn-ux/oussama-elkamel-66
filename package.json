@@ -1,1 +1,12 @@
-{"name": "project", "version": "1.0.0", "scripts": {"build": "vite build"}, "dependencies": {"react": "latest", "react-dom": "latest", "vite": "latest"}, "devDependencies": {"@types/react": "latest", "@types/react-dom": "latest", "lucide-react": "latest"}}
+{
+  "name": "project",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build --base=./ --base=./"
+  },
+  "dependencies": {
+    "react": "latest",
+    "vite": "latest"
+  }
+}

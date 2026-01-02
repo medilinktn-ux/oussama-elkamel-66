@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
+interface Toast {
+  message: string;
+  type: 'success' | 'error' | 'warning';
+}
+
 const useToast = () => {
-  const [toast, setToast] = useState(null);
+  const [toast, setToast] = useState<Toast | null>(null);
+  const [duration, setDuration] = useState(3000);
 
   useEffect(() => {
     if (toast) {
       const timer = setTimeout(() => {
         setToast(null);
-      }, 3000);
+      }, duration);
       return () => clearTimeout(timer);
     }
-  }, [toast]);
+  }, [toast, duration]);
 
-  return { toast, setToast };
+  const showToast = (message: string, type: 'success' | 'error' | 'warning', duration?: number) => {
+    setToast({ message, type });
+    if (duration) {
+      setDuration(duration);
+    }
+  };
+
+  return { toast, setToast: showToast };
 };
 
 export default useToast;

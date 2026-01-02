@@ -7,8 +7,8 @@ interface BookListProps {
 
 function BookList({ books }: BookListProps) {
   return (
-    <div>
-      {books.map((book, index) => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {books && books.map((book, index) => (
         <Book key={index} title={book.title} author={book.author} description={book.description} />
       ))}
     </div>
