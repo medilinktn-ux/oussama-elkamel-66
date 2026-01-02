@@ -1,15 +1,20 @@
 import React from 'react';
 import Book from './Book';
 
-interface BookListProps {
-  bookTitles: string[];
+interface Book {
+  title: string;
+  author: string;
 }
 
-const BookList = ({ bookTitles }: BookListProps) => {
+interface BookListProps {
+  books: Book[];
+}
+
+const BookList = ({ books }: BookListProps) => {
   return (
     <div>
-      {bookTitles.map((title, index) => (
-        <Book key={index} title={title} />
+      {books.map((book, index) => (
+        <Book key={index} title={book.title} author={book.author} />
       ))}
     </div>
   );

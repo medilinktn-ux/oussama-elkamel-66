@@ -1,6 +1,6 @@
 {
-  "short_name": "Project",
-  "name": "Project",
+  "short_name": "My Project",
+  "name": "My Web Application",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
