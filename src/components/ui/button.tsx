@@ -6,8 +6,9 @@ interface ButtonProps {
   children: React.ReactNode;
   disabled?: boolean;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: 'primary' | 'secondary' | 'danger' | 'success';
   size?: 'small' | 'medium' | 'large';
+  loading?: boolean;
 }
 
 const Button = ({
@@ -17,19 +18,21 @@ const Button = ({
   disabled = false,
   className = '',
   variant = 'primary',
-  size = 'medium'
+  size = 'medium',
+  loading = false
 }: ButtonProps) => {
   const classes = [
     'button',
     variant,
     size,
     disabled ? 'disabled' : '',
+    loading ? 'loading' : '',
     className
   ].filter(Boolean).join(' ');
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
-      {children}
+    <button type={type} onClick={onClick} disabled={disabled || loading} className={classes}>
+      {loading ? 'Loading...' : children}
     </button>
   );
 };

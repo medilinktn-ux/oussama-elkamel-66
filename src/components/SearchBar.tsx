@@ -13,6 +13,10 @@ const SearchBar = () => {
     setSearchQuery(event.target.value);
   };
 
+  const handleClearInput = () => {
+    setSearchQuery('');
+  };
+
   return (
     <div>
       <input
@@ -21,7 +25,10 @@ const SearchBar = () => {
         onChange={handleInputChange}
         placeholder="Search..."
       />
-      <Button onClick={handleSearch}>Search</Button>
+      {searchQuery && (
+        <Button className="clear-input" onClick={handleClearInput}>Clear</Button>
+      )}
+      <Button onClick={handleSearch} disabled={!searchQuery}>Search</Button>
     </div>
   );
 };

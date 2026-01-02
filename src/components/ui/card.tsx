@@ -7,8 +7,9 @@ interface CardProps {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: 'primary' | 'secondary' | 'danger' | 'success';
   size?: 'small' | 'medium' | 'large';
+  footer?: React.ReactNode;
 }
 
 const Card = ({
@@ -18,12 +19,14 @@ const Card = ({
   style = {},
   onClick,
   variant = 'primary',
-  size = 'medium'
+  size = 'medium',
+  footer
 }: CardProps) => {
   return (
     <ShadcnCard className={className} style={style} onClick={onClick}>
       <ShadcnCard.Header>{title}</ShadcnCard.Header>
       <ShadcnCard.Body>{content}</ShadcnCard.Body>
+      {footer && <ShadcnCard.Footer>{footer}</ShadcnCard.Footer>}
     </ShadcnCard>
   );
 };

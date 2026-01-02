@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface DialogProps {
   title: string;
@@ -11,12 +11,25 @@ interface DialogProps {
 const Dialog = ({ title, content, actions, isOpen, onClose }: DialogProps) => {
   if (!isOpen) return null;
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
-    <div className="dialog-overlay" onClick={onClose}>
+    <div className="dialog-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="dialog-container" onClick={(e) => e.stopPropagation()}>
         <div className="dialog-header">
           <h2>{title}</h2>
-          <button className="close-button" onClick={onClose}>×</button>
+          <button className="close-button" onClick={onClose} aria-label="Close dialog">×</button>
         </div>
         <div className="dialog-content">
           {content}
