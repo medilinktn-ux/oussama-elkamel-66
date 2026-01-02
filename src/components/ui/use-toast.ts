@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-function useToast() {
-  const [toast, setToast] = useState(false);
+const useToast = () => {
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    // some effect
-  }, []);
+    if (toast) {
+      const timer = setTimeout(() => {
+        setToast(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
-  return toast;
-}
+  return { toast, setToast };
+};
 
 export default useToast;

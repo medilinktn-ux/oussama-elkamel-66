@@ -1,11 +1,16 @@
 import React from 'react';
 import Book from './Book';
 
-function BookList() {
+interface BookListProps {
+  books: { title: string; author: string; description: string }[];
+}
+
+function BookList({ books }: BookListProps) {
   return (
     <div>
-      <Book />
-      <Book />
+      {books.map((book, index) => (
+        <Book key={index} title={book.title} author={book.author} description={book.description} />
+      ))}
     </div>
   );
 }
