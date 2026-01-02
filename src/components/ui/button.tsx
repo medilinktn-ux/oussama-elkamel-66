@@ -6,11 +6,31 @@ interface ButtonProps {
   children: React.ReactNode;
   disabled?: boolean;
   className?: string;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'small' | 'medium' | 'large';
 }
 
-const Button = ({ type = 'button', onClick, children, disabled = false, className = '' }: ButtonProps) => {
+const Button = ({
+  type = 'button',
+  onClick,
+  children,
+  disabled = false,
+  className = '',
+  variant = 'primary',
+  size = 'medium'
+}: ButtonProps) => {
+  const classes = [
+    'button',
+    variant,
+    size,
+    disabled ? 'disabled' : '',
+    className
+  ].filter(Boolean).join(' ');
+
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={className}>{children}</button>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
+      {children}
+    </button>
   );
 };
 
